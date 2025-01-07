@@ -147,3 +147,20 @@ public class Program
     }
 
 }
+
+/** Lab 01 **
+    Trong quản lý sách ở thư viện, cần có các lớp đối tượng:
+    - Sách: mã sách, tên sách, tác giả, năm xuất bản, số lượng
+    - Độc giả: mã độc giả, tên độc giả, địa chỉ, số điện thoại
+    - Phiếu mượn: mã phiếu mượn, mã độc giả, mã sách, ngày mượn, ngày trả
+    Hãy xây dựng chương trình quản lý với các chức năng:
+    - Thêm sách, độc giả
+    - Tìm kiếm sách
+    - Mượn và Trả sách
+    Xây dựng dưới dạng hướng thủ tục (các lớp đơn giản chỉ
+    chứa các thuộc tính, không chứa phương thức). Ngoài ra,
+    các biến lưu danh sách sách, độc giả, phiếu mượn được 
+    tổ chức dưới dạng biến toàn cục (hoặc ngang hàng với 
+    class Program, hoặc trực tiêp trong class Program).
+)
+*/
