@@ -12,3 +12,4 @@
 /Users/hoangthanh/OOP/OOP-2025/FirstOOP_Ex/obj/Debug/net8.0/FirstOOP_Ex.pdb
 /Users/hoangthanh/OOP/OOP-2025/FirstOOP_Ex/obj/Debug/net8.0/FirstOOP_Ex.genruntimeconfig.cache
 /Users/hoangthanh/OOP/OOP-2025/FirstOOP_Ex/obj/Debug/net8.0/ref/FirstOOP_Ex.dll
+/Users/hoangthanh/OOP/OOP-2025/FirstOOP_Ex/obj/Debug/net8.0/FirstOOP_Ex.sourcelink.json

@@ -19,6 +19,8 @@ public class ThucPham
     public string tenthucpham;
     public double giaban;
     public uint slcon;
+    public string nuocsx;
+    public byte giamgia;
 }
 public class KhachHang
 {
@@ -28,11 +30,14 @@ public class KhachHang
 public class Program
 {
     static List<ThucPham> dsThucPham = new List<ThucPham>();
-    public static ThucPham NhapTP(string ten, double gia, uint soluong){
+    public static ThucPham NhapTP(string ten, double gia, 
+                uint soluong, string nuocsx, byte giamgia){
         ThucPham tp = new ThucPham();
         tp.tenthucpham = ten;
         tp.giaban = gia;
         tp.slcon = soluong;
+        tp.nuocsx = nuocsx;
+        tp.giamgia = giamgia;
         return tp;
     }
     static List<KhachHang> dsKhachHang = new List<KhachHang>();
@@ -59,7 +64,10 @@ public class Program
         foreach(ThucPham tp in dstp)
             Console.WriteLine("+ Tên: "+tp.tenthucpham+"\n"
                                + "Giá: "+tp.giaban+"\n"
-                               + "Số lượng: "+sls[index++]+"\n");
+                               + "Số lượng: "+sls[index++]+"\n"
+                               + "Nước sx: "+tp.nuocsx+"\n"
+                               + "Giảm giá (%): "+tp.giamgia+"\n"
+                             );
         Console.WriteLine("---");
         double sum = TinhGia(dstp, sls);
         Console.WriteLine($"Tổng giá: {sum}\n\n");  
@@ -67,16 +75,17 @@ public class Program
     public static double TinhGia(List<ThucPham> dstp, List<uint> sls){
         double sum = 0;
         for(int i=0; i<dstp.Count; i++)
-            sum += dstp[i].giaban * sls[i];
+            sum += dstp[i].giaban * sls[i]
+                    - dstp[i].giaban*dstp[i].giamgia/100*sls[i];
         return sum;
     }
     public static void Main(string[] args)
     {
-        ThucPham thucpham1 = NhapTP("Gạo", 100, 100);
+        ThucPham thucpham1 = NhapTP("Gạo", 100, 100, "VN", 0);
         dsThucPham.Add(thucpham1);
-        ThucPham thucpham2 = NhapTP("Ngô", 120, 100);
+        ThucPham thucpham2 = NhapTP("Ngô", 120, 100, "US", 5);
         dsThucPham.Add(thucpham2);
-        ThucPham thucpham3 = NhapTP("Thịt", 540, 100);
+        ThucPham thucpham3 = NhapTP("Thịt", 540, 100, "JP", 3);
         dsThucPham.Add(thucpham3);
         KhachHang khachhang1 = NhapKH("Nguyễn Văn A", "0123456789");
         dsKhachHang.Add(khachhang1);
@@ -104,13 +113,17 @@ public class Program
         + Tên: Gạo
         Giá: 100
         Số lượng: 5
+        Nước sx: VN
+        Giảm giá (%): 0
 
         + Tên: Thịt
         Giá: 540
         Số lượng: 2
+        Nước sx: JP
+        Giảm giá (%): 3
 
         ---
-        Tổng giá: 1580
+        Tổng giá: 1547.6
 
 
         =====Hóa đơn=====
@@ -119,13 +132,17 @@ public class Program
         + Tên: Ngô
         Giá: 120
         Số lượng: 10
+        Nước sx: US
+        Giảm giá (%): 5
 
         + Tên: Thịt
         Giá: 540
         Số lượng: 3
+        Nước sx: JP
+        Giảm giá (%): 3
 
         ---
-        Tổng giá: 2820
+        Tổng giá: 2711.4
         */
     }
 
